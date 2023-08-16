@@ -7,21 +7,6 @@ const { Car } = require("../models/car");
 const routes = (app) => {
   const router = express.Router();
 
-  router.post("/todos", (req, res) => {
-    const todo = new Todo({
-      text: req.body.text,
-    });
-
-    todo
-      .save()
-      .then((result) => {
-        serverResponses.sendSuccess(res, messages.SUCCESSFUL, result);
-      })
-      .catch((e) => {
-        serverResponses.sendError(res, messages.BAD_REQUEST, e);
-      });
-  });
-
   router.post("/cars", (req, res) => {
     const car = new Car(req.body);
 
